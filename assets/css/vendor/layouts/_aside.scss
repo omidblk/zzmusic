@@ -1,0 +1,244 @@
+#sidebar{
+	.widget{
+		&:not(:last-child){margin-bottom: 15px;}
+		padding: 15px;
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		
+		.widget-title{
+			color: map-get($colors, 'primary' );
+			margin-bottom: 15px;
+			position: relative;
+			&:after{
+				content: '';
+				background-color: map-get($colors, 'primary' );
+				width: 20px;
+				height: 20px;
+				position:absolute;
+				left:-15px ;
+
+			}
+		}
+		.categorise{
+			li{transition: all 0.3s linear;
+				&:hover{
+					background-color: map-get($colors, 'primary' );
+					color: white;
+					a{
+						&::before{background-color: white;}	
+					}
+				}
+			}
+			
+			a{
+				padding-right: 5px;
+				display: flex;
+				align-items: center;
+				position: relative;
+				&::after{
+					margin-left: 10px;
+					content: '10';
+					position: absolute;
+					left: 0;
+				}
+				&::before{
+					content: '';
+					border-radius: 50%;
+					width: 6px;
+					height: 6px;
+					margin-left: 5px;
+					background-color:map-get($colors, 'primary' );
+					transition: all 0.3s linear;
+				}
+			}
+			>li{
+				&:not(:last-child){margin-bottom: 10px;}
+				background-color: $border-color;
+				border-radius: $border-radius;
+
+			}
+			ul{
+				margin-right: 15px;
+				li{
+					margin-bottom: 10px;
+					border-radius: $border-radius;
+				}
+			}
+		}
+		.sortbyalphabet{
+			ul{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			ul.alphabet{
+				display: grid;
+				grid-template-columns:repeat(12 , minmax(0, 1fr)) ;
+				grid-gap: 5px;
+				margin-bottom: 20px;
+				li{
+				text-align: center;
+				border-radius: $border-radius;
+				background-color: $border-color;
+				transition: all 0.3 linear;
+				&.active{
+					background-color: map-get($colors, 'primary' );
+					color: white;
+					pointer-events: none;
+				}
+				&:hover{
+					background-color: map-get($colors, 'primary' );
+					color: white;
+				}
+				}
+			}
+			ul.singers{
+				display: grid;
+				grid-template-columns:repeat(2 , minmax(0, 1fr)) ;
+				grid-gap: 5px;
+				a{
+					display: flex;
+					align-items: center;
+					transition: all 0.3s linear;
+				&::before{
+					content: '';
+					margin-left: 5px;
+					width: 6px;
+					height: 6px;
+					background-color: $border-color;
+					border-radius: 50%;
+					transition: all 0.3s linear;
+				}
+				&:hover{
+					color: map-get($colors, 'primary' );
+					&::before{background-color: map-get($colors, 'primary' );}
+				}
+			}
+			}
+		}
+		.recent{
+			margin: 0 -15px;
+			.titleofrecent{
+				display: flex;
+				li{
+					flex: 1 0 0;
+					align-items: center;
+					text-align: center;
+					&.active{
+					background-color:map-get($colors, 'primary' ) ;
+					color: white;
+					}
+					&:not(:last-child){
+					border-left: 1px solid $border-color;				
+					}
+					border-top: 1px solid $border-color;
+					margin:0 auto;
+					padding: 10px 0;
+					transition: all 0.3s linear;
+					
+					&:hover{
+						background-color: map-get($colors, 'primary' );
+						color: white;
+					}
+				}
+			}
+			.objectofrecent{
+				a{
+					padding: 10px;
+					display: block;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					transition: all 0.3s linear;
+					&:hover{
+						background-color:map-get($colors, 'primary' ) ;
+						color: white;
+					}
+				}
+				li{
+					border-top: 1px solid $border-color;
+				}
+			}
+		}
+		.golchin{
+			margin: 0 -15px;
+			.titleofgolchin{
+				display: flex;
+				li{
+					flex: 1 0 0;
+					text-align: center;
+					padding: 10px 0;
+					border: 1px solid $border-color;
+					transition: all 0.3s linear;
+					
+					&:hover{
+						background-color: map-get($colors, 'primary' );
+						color: white;
+					}
+				}
+			}
+			.objectofgolchin{
+				a{
+					display: block;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					padding: 10px;
+					transition: all 0.3s linear;
+					&:hover{
+						background-color: map-get($colors, 'primary' );
+						color: white;
+					}
+				}
+				li{
+					&:not(:last-child){
+						border-bottom: 1px solid $border-color;
+					}
+				}
+			}
+		}
+		.comingsoon{
+			img{
+				height: auto;
+				width: 100%;
+			}
+			display: block;
+			border-radius: $border-radius;
+			border: 1px solid $border-color;
+			overflow: hidden;
+			font-size: 13px;
+			font-weight: 300;
+		}
+		.socials{
+			display: grid;
+			grid-gap: 10px;
+			grid-template-columns:repeat(2 , minmax(0 , 1fr)) ;
+			a{
+				display: grid;
+				grid-gap: 10px;
+				grid-template-columns: 36px minmax(0,1fr);
+				i{
+					width: 36px;
+					height: 36px;
+					border-radius: 50%;
+					filter: grayscale(100%);
+					transition: all 0.3s linear;
+					&.fb{background-color:#1877F2;}
+					&.in{background-color:#c32aa3;}
+					&.yu{background-color:#ff0000;}
+					&.te{background-color:#00a0dc;}
+					&.wa{background-color:#25d366;}
+					&.tw{background-color:#1da1f2;}					
+				}
+				transition: all 0.3s linear;
+				&:hover{
+					i{filter: grayscale(0%);}
+				}
+			}
+		}	
+	}
+	
+}

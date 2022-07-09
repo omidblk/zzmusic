@@ -1,0 +1,117 @@
+.boxstyle{
+	border-radius: 2px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0px 2px 3px 0px rgba(1, 1, 1, 0.23);
+}
+.breadcrumbs{
+	width: max-content;
+	max-width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	a{
+		color:map-get($colors, 'primary' );
+	}
+}
+.posts{
+	.entry{
+		&:not(:last-child){margin-bottom: 1rem;}
+		.entry-header{
+			display: grid;
+			grid-template-columns: minmax(0,1fr) minmax(100px,auto);
+			align-items: center;
+			.entry-title{
+				border-bottom: 5px solid $border-color;
+				margin: 0;
+				padding: 1rem;
+
+			}
+			.entry-vote{
+				padding: 1rem;
+				text-align: center;
+
+			}
+		}
+		.entry-footer{
+			display: flex;
+			border-top: 2px solid $border-color;
+			span{
+				display: flex;
+				align-items: center;
+				margin-left: auto;
+			}
+			.entry-more{
+				margin-right: auto;
+				overflow: hidden;
+				color: white;
+				padding-right: 8px;
+				line-height: 30px;
+				display: inline-flex;
+				background-color: map-get($colors, 'primary' );
+				border-radius: $border-radius;
+				transition: background 0.3s linear;
+				&::after{
+					content: '>';
+					width: 30px;
+					margin-right: 8px;
+					border-right: 2px solid white;
+					background-color: $text-muted;
+					text-align: center;
+				}
+				&:hover{
+					background-color: $text-muted;
+					&:after{
+					background-color: map-get($colors, 'primary' );	
+					}
+				}
+			}
+		}
+	}
+}
+
+.pagination{
+	display: flex;
+	margin-top: 16px;
+	align-items: center;
+	justify-content: center;
+	box-shadow: none;
+	border: 1px solid $border-color;
+	.page-numbers{
+		margin: 0 auto;
+		padding:0 5px;
+		min-width: 25px;
+		line-height: 25px;
+		text-align: center;
+		border-radius: $border-radius;
+		transition: all 0.3s linear;
+		&.dots{pointer-events:none;}
+		&.current,&:hover{
+			color: white;
+			background-color: map-get($colors, 'primary');
+		}
+		&.current{
+			font-size: 17px;
+			transform: scale(1.3);
+		}
+		&.perv,&.next{
+			width: 40px;
+			border-radius: 0;
+			line-height: 40px;
+			padding: 0;
+			font-size: 16px;
+			&:hover{
+				color: map-get($colors, 'primary' );
+				background: transparent;
+			}
+
+		}
+		&.perv{
+			margin-right: 0;
+			border-left: 1px solid $border-color;
+		}
+		&.next{
+			margin-left: 0;
+			border-right: 1px solid $border-color;
+		}
+	}
+}

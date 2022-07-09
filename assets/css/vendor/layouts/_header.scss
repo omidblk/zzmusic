@@ -1,0 +1,51 @@
+#siteHead{
+    &::after{
+        content: '';
+        display: block;
+        border: 3px dotted $border-color;
+        height: 10px;
+    }
+    margin-bottom: 1rem;
+    #navigation{
+        align-items: center;
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li{
+                padding: 3px;
+                display: inline-flex;
+                align-items: center;
+                transition: all 0.3s linear;
+                &:not(:last-child){
+                    a{padding-left: 15px;}
+                    &:not(:nth-child(4)){
+                     border-left: 2px solid $border-color;   
+                    }
+                    
+                }
+                &:last-child{
+                    a{
+                        padding: 3px;
+                        background-color: map-get($colors, 'primary' );
+                        color: white;
+                        border-radius: $border-radius;
+                    }
+                }
+                &:hover{
+                    &:not(:last-child){
+                        color: map-get($colors, 'primary' );
+                        border-radius: $border-radius;
+                    }
+                }
+            }
+        }
+    }
+    .input-group{
+        .form-control,.btn{
+            background-color: $border-color;
+            box-shadow: none !important;
+            border-color: $border-color;
+        }
+    }
+}
